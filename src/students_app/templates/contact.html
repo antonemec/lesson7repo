@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock title %}
+{% block content %}
+
+<div class="container">
+<form id="contact" action="{% url 'contact-s' %}" method="post">
+    <h3>Contact:</h3>
+    <fieldset>
+    {% csrf_token %}
+{{ form.as_p }}
+    </fieldset>
+    <fieldset>
+        <button name="submit" type="submit">Submit</button>
+    </fieldset>
+</form>
+</div>
+
+{% endblock content %}

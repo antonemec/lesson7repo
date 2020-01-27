@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Update for gen 1 teacher{% endblock title %}
+{% block content %}
+
+<div class="container">
+    <form id="contact">
+    <h3>New teacher:</h3>
+    <fieldset>
+{{ gen_t|safe }}
+    </fieldset>
+    </form>
+</div>
+
+{% endblock content %}

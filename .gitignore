@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.idea/
+env/
+.flake8
+settings_local.py

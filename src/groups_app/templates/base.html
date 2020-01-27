@@ -1,0 +1,57 @@
+<!DOCTYPE html> {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+</head>
+<body>
+
+<nav class="menu">
+	<ol>
+		<li class="menu-item"><a href="">MAIN</a>
+            <ol class="sub-menu">
+				<li class="menu-item"><a href="{% url 'index' %}">Index</a></li>
+				<li class="menu-item"><a href="admin/">Admin</a></li>
+            </ol>
+        </li>
+		<li class="menu-item"><a href="">Teachers</a>
+            <ol class="sub-menu">
+            	<li class="menu-item"><a href="{% url 'gen-t' %}">Generate</a></li>
+				<li class="menu-item"><a href="{% url 'list-t' %}">List</a></li>
+				<li class="menu-item"><a href="{% url 'add-t' %}">Add</a></li>
+            </ol>
+        </li>
+		<li class="menu-item"><a href="">Groups</a>
+			<ol class="sub-menu">
+				<li class="menu-item"><a href="{% url 'gen-group' %}">Generate</a></li>
+				<li class="menu-item"><a href="{% url 'list-groups' %}">List</a></li>
+				<li class="menu-item"><a href="{% url 'add-group' %}">Add</a></li>
+			</ol>
+		</li>
+		<li class="menu-item"><a href="">Students</a>
+			<ol class="sub-menu">
+				<li class="menu-item"><a href="{% url 'gen-s' %}">Generate</a></li>
+				<li class="menu-item"><a href="{% url 'list-s' %}">List</a></li>
+				<li class="menu-item"><a href="{% url 'add-s' %}">Add</a></li>
+			</ol>
+		</li>
+		<li class="menu-item"><a href="{% url 'contact-s' %}">Contact</a></li>
+	</ol>
+</nav>
+
+<!-- This is not part of Pen -->
+<a class="me" href="https://codepen.io/uzcho_/pens/popular/?grid_type=list" target="_blank" style="color:#000"></a>
+
+
+<br>
+
+{% block content %}
+{% endblock content %}
+
+</body>
+</html>
