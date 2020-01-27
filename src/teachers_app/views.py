@@ -44,10 +44,10 @@ def teachers_add(request):
     if request.method == 'POST':
         form = TeachersAddForm(request.POST)
         if form.is_valid():
-            f = form.save()
-            log = open('logs.txt', 'a')
+            form.save()
+            """log = open('logs.txt', 'a')
             log.write(f'{datetime.now().strftime("%A, %d. %B %Y %I:%M%p"), f} + \n')
-            log.close()
+            log.close()"""
             return HttpResponseRedirect(reverse('list-t'))
     else:
         form = TeachersAddForm()
