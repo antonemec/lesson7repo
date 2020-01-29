@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings
+import debug_toolbar
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('students/', include('students_app.urls')),
@@ -24,8 +27,6 @@ urlpatterns = [
     path('', include('main.urls')),
 ]
 
-from django.conf import settings
-import debug_toolbar
 
 if settings.DEBUG:
     urlpatterns = [
