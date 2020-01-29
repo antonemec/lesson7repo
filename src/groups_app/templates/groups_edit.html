@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}GROUPS EDIT{% endblock title %}
+{% block content %}
+<div class="container">
+<form id="contact" action="{% url 'edit-group' 12  %}" method="post">
+    <h3>Edit group:</h3>
+    <fieldset>
+    {% csrf_token %}
+{{ form.as_p }}
+    </fieldset>
+    <fieldset>
+        <button name="submit" type="submit">Submit</button>
+    </fieldset>
+</form>
+</div>
+{% endblock content %}

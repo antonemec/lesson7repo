@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Groups List{% endblock title %}
+{% block content %}
+    <div class="container">
+        <form id="contact">
+            <h3>Selected groups:</h3>
+            <fieldset>
+               <table class="table">
+                <tr>
+                    <th>
+                <form action="{% url 'list-groups' %}" method="get">
+            <fieldset>
+                <input name="data" class="btn">
+                <input name="submit" class="btn" type="submit" value="Найти группу">
+            </fieldset>
+        </form>
+                    </th>
+                    <th>
+                    <a href="{% url 'add-group' %}" class="btn">Добавить новую группу</a>
+                </th>
+                <th>
+
+                </th>
+            </tr>
+         </table>
+                <table class="table">
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>description</th>
+                </tr>
+                    {% for group in groups_list %}
+               {# {{ groups_list|safe }} #}
+                    <tr>
+                        <td>{{ group.id }} </td>
+                        <td>{{ group.name }}</td>
+                        <td>{{ group.description }}</td>
+                        <td><a href="{% url 'edit-group' group.id %}">Edit</a></td>
+                    </tr>
+                    {% endfor %}
+                    </table>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}

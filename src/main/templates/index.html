@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}index{% endblock title %}
+{% block content %}
+   <div>
+        <form id="contact">
+            <h1>Страницы проекта:</h1> --------------------
+            <p>>Базовые страницы</p>
+            <ol>
+                <li><a href="{% url 'index' %}">Стартовая страница</a></li>
+                <li><a href='admin/'>Страница входа в админку</a></li>
+            </ol>
+            --------------------
+            <br>
+            <p>>Студенты</p>
+            <ol>
+                <li><a href="{% url 'gen-s' %}">Генерация и отображение одного студента</a></li>
+                <li><a href="{% url 'list-s' %}">Отображение всех студентов</a></li>
+                <li><a href="{% url 'add-s' %}">Форма добавления студента</a></li>
+            </ol>
+            --------------------
+            <br>
+            <p>>Группы</p>
+            <ol>
+                <li><a href="{% url 'gen-group' %}">Генерация и отображение одной группы</a></li>
+                <li><a href="{% url 'list-groups' %}">Отображение всех групп</a></li>
+                <li><a href="{% url 'add-group' %}">Форма добавления группы</a></li>
+            </ol>
+            --------------------
+            <br>
+            <p>>Учителя</p>
+            <ol>
+                <li><a href="{% url 'gen-t' %}">Генерация и отображение одного учителя</a></li>
+                <li><a href="{% url 'list-t' %}">Отображение всех учителей</a></li>
+                <li><a href="{% url 'add-t' %}">Форма добавления учителя</a></li>
+            </ol>
+            --------------------
+            <br>
+            <p>>Contact</p>
+            <ol>
+                <li><a href="{% url 'contact-s' %}">Contact</a></li>
+            </ol>
+        </form>
+    </div>
+{% endblock content %}

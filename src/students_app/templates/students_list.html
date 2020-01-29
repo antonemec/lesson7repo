@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Students List{% endblock title %}
+{% block content %}
+<div class="container">
+   <form id="contact">
+      <h3>Selected students:</h3>
+      <fieldset>
+         <table class="table">
+            <tr>
+               <th>
+                   <form action="{% url 'list-s' %}" method="get">
+                       <fieldset>
+                           <input name="data" class="btn">
+                           <input name="submit" class="btn" type="submit" value="Найти студента">
+                       </fieldset>
+                   </form>
+                </th>
+                <th>
+                    <a href="{% url 'add-s' %}" class="btn">Добавить нового студента</a>
+                </th>
+                <th>
+
+                </th>
+            </tr>
+         </table>
+          <table class="table">
+           <tr>
+               <th>id</th>
+               <th>first_name</th>
+               <th>last_name</th>
+               <th>birth_date</th>
+               <th>email</th>
+               <th>telephone</th>
+               <th>address</th>
+               <th>group</th>
+               <th>edit</th>
+           </tr>
+   {% for student in students %}
+           <tr>
+               <td>{{ student.id }} </td>
+               <td>{{ student.first_name }}</td>
+               <td>{{ student.last_name }}</td>
+               <td>{{ student.birth_date }}</td>
+               <td>{{ student.email }}</td>
+               <td>{{ student.telephone }}</td>
+               <th>{{ student.address }}</th>
+               <th>{{ student.group.name }}</th>
+               <td><a href="{% url 'edit-s' student.id %}">Edit</a></td>
+           </tr>
+   {% endfor %}
+          </table>
+   {# students_list|safe #}
+        </fieldset>
+    </form>
+</div>
+{% endblock content %}

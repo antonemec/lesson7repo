@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}List teachers{% endblock title %}
+{% block content %}
+    <div class="container">
+        <form id="contact">
+            <h3>Selected Teachers:</h3>
+            <fieldset>
+               <table class="table">
+                <tr>
+                    <th>
+                <form action="{% url 'list-t' %}" method="get">
+            <fieldset>
+                <input name="data" class="btn">
+                <input name="submit" class="btn" type="submit" value="Найти учителя">
+            </fieldset>
+        </form>
+                    </th>
+                    <th>
+                    <a href="{% url 'add-t' %}" class="btn">Добавить нового учителя</a>
+                </th>
+                <th>
+
+                </th>
+            </tr>
+         </table>
+                <table class="table">
+        <tr>
+                  <th>id</th>
+                  <th>first_name</th>
+                  <th>last_name</th>
+                    <th>email</th>
+                    <th>telephone</th>
+                    <th>edit</th>
+                  </tr>
+         {% for teacher in teachers_list %}
+        <tr>
+        <td>{{ teacher.id }}</td>
+        <td>{{ teacher.first_name }}</td>
+        <td>{{ teacher.last_name }}</td>
+        <td>{{ teacher.email }}</td>
+        <td>{{ teacher.telephone }}</td>
+        <td><a href="{% url 'edit-t' teacher.id %}">Edit</a></td>
+                 </tr>
+                {% endfor %}
+                </table>
+{#{ teachers_list|safe }#}
+    </fieldset>
+    </form>
+</div>
+
+{% endblock content %}
