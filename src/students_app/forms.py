@@ -24,7 +24,8 @@ class ContactForm(Form):
         message = data['text']
         email_from = data['email']
         with open('src/logs.txt', 'a') as text:
-            text.write(f'\n---------------------------\n{datetime.now()} \nNew data in CONTACT: \nSubject: {subject}; \nMessage: {message}; '
+            text.write(f'\n---------------------------\n{datetime.now()} \n'
+                       f'New data in CONTACT: \nSubject: {subject}; \nMessage: {message}; '
                        f'\nEmail: {email_from} \n---------------------------\n')
         recipient_list = [settings.EMAIL_HOST_USER, ]
         send_mail(subject, message, email_from, recipient_list, fail_silently=False)

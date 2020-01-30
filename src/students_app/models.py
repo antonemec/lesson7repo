@@ -1,6 +1,5 @@
 from django.db import models
 from faker import Faker
-import random
 
 
 # --------------------------------------------------------------------------------------------------------------
@@ -40,6 +39,7 @@ class Student(models.Model):
                       last_name=fake.last_name(),
                       birth_date=fake.date_of_birth(tzinfo=None, minimum_age=10, maximum_age=60),
                       email=fake.email(),
-                      telephone=''.join(x for x in a if x.isdigit()))
+                      telephone=''.join(x for x in a if x.isdigit()),
+                      address=fake.address())
         student.save()
         return student

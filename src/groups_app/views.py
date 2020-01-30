@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
+from django.http import HttpResponseRedirect, HttpResponseNotFound
 from django.shortcuts import render
 from django.db.models import Q
 from django.urls import reverse
@@ -22,8 +22,8 @@ def generate_group(request):
 
 # ----------------------------------------------------------------------------
 def groups_list(request):
-    queryset = Group.objects.all()
-    response = ''
+    queryset = Group.objects.all().select_related('curator')
+    # response = ''
 
     # print("request.GET.get('group_name')")
     fn = request.GET.get('data')

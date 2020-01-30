@@ -4,7 +4,6 @@ from teachers_app.models import Teacher
 from teachers_app.forms import TeachersAddForm
 from django.db.models import Q
 from django.urls import reverse
-from datetime import datetime
 
 
 # ----------------------------------------------------------------------------

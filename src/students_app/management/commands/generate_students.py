@@ -1,7 +1,12 @@
 import random
 
 from django.core.management.base import BaseCommand
-from students_app.models import Student, Group
+from students_app.models import Student
+from groups_app.models import Group
+from teachers_app.models import Teacher
+from faker import Faker
+
+fake = Faker()
 
 
 class Command(BaseCommand):
@@ -17,8 +22,19 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         Group.objects.all().delete()
         Student.objects.all().delete()
+        Teacher.objects.all().delete()
 
-        groups = [Group.objects.create(name=f'name_{i}')
+        a = f'{fake.phone_number}'
+
+        teachers = [Teacher.objects.create(first_name=fake.first_name(),
+                                           last_name=fake.last_name(),
+                                           email=fake.email(),
+                                           telephone=''.join(x for x in a if x.isdigit()))
+                    for i in range(10)]
+
+        groups = [Group.objects.create(name=f'{fake.first_name()} Group',
+                                       description=f'{fake.text()}',
+                                       curator=random.choice(teachers))
                   for i in range(10)]
 
         num = int(options.get('number') or 100)
