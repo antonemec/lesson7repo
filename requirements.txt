@@ -1,7 +1,7 @@
 asn1crypto==0.24.0
 backports.shutil-get-terminal-size==1.0.0
 configparser==3.5.0b2
-cryptography==2.6.1
+cryptography==3.2
 dbus-python==1.2.16
 decorator==4.4.1
 django-debug-toolbar==1.11
